@@ -7,6 +7,7 @@ class List extends React.Component {
   static propTypes = {
     title: PropTypes.node.isRequired,
     children: PropTypes.node,
+    image: PropTypes.node,
   }
   static defaultProps = {
     children: <p>I can do all the things!!!</p>,
@@ -19,6 +20,14 @@ class List extends React.Component {
           {this.props.children}
         </div>
       </section>
+    )
+    return (
+      <section className={styles.component}>
+      <Hero imageProp={this.props.image} />
+        <div className={styles.image}>
+          {this.props.image}
+        </div>
+      </section> 
     )
   }
 }
