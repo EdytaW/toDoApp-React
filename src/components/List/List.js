@@ -26,6 +26,7 @@ class List extends React.Component {
           {this.props.image}
         </div>
       </section> 
+    )
   }
 }
 
