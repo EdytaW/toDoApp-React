@@ -14,20 +14,12 @@ class List extends React.Component {
   }
   render() {
     return (
-      <div>
-        <section className={styles.component}>
-          <Hero titleText={this.props.title} />
-          <div className={styles.description}>
-            {this.props.children}
-          </div>
-        </section>
-        <section className={styles.component}>
-        <Hero imageProp={this.props.image} />
-          <div className={styles.image}>
-            {this.props.image}
-          </div>
-        </section> 
-      </div>
+      <section className={styles.component}>
+        <Hero titleText={this.props.title} imageProp={this.props.image}/>
+        <div className={styles.description}>
+          {this.props.children}
+        </div>
+      </section>
     )
   }
 }
