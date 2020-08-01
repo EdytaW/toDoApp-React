@@ -16,9 +16,24 @@ class Column extends React.Component {
     cards: PropTypes.array,
     addCard: PropTypes.func,
     id: PropTypes.string,
-  } 
+  }
+  addCard(title) {
+    this.setState(state => (
+      {
+        cards: [
+          ...state.cards,
+          {
+            key: state.cards.length ? state.cards[state.cards.length - 1].key + 1 : 0,
+            title,
+            icon: 'list-alt',
+            cards: []
+          }
+        ]
+      }
+    ));
+  }
     render() {
-      const { title, cards, addCard, icon } = this.props;
+      const { title, cards, icon } = this.props;
       return (
         <section className={styles.component}>
           <h3 className={styles.title}>
@@ -31,7 +46,7 @@ class Column extends React.Component {
             <Card key={cardData.id} {...cardData} />
           ))} 
           <div>
-          <Creator text={settings.cardCreatorText} action={addCard} />
+            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
           </div>  
         </section>
       )
