@@ -42,19 +42,17 @@ class Column extends React.Component {
             </span>
             {title}
           </h3>
-          {cards.map((cardData) => (
-            <Card key={cardData.id} {...cardData} />
-          ))} 
-          <div>
+          <div className={styles.cards}>
+            {this.state.cards.map(({ key, ...columnProps }) => (
+              <Card key={key} {...columnProps} />
+            ))}
+          </div>
+          <div className={styles.creator}>
             <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
           </div>  
         </section>
       )
     }
   }
-
-  Column.propTypes = {
-    title: PropTypes.string,
-  };
   
   export default Column;
