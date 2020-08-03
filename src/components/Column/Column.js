@@ -16,6 +16,7 @@ class Column extends React.Component {
     cards: PropTypes.array,
     addCard: PropTypes.func,
     id: PropTypes.string,
+    icon: PropTypes.icon,
   }
   addCard(title) {
     this.setState(state => (
@@ -26,33 +27,33 @@ class Column extends React.Component {
             key: state.cards.length ? state.cards[state.cards.length - 1].key + 1 : 0,
             title,
             icon: 'list-alt',
-            cards: []
-          }
-        ]
+            cards: [],
+          },
+        ],
       }
     ));
   }
-    render() {
-      const { title, cards, icon } = this.props;
-      return (
-        <section className={styles.component}>
-          <h3 className={styles.title}>
-            <span className={styles.icon}>
-              <Icon name={icon} />
-            </span>
-            {title}
-          </h3>
-          <div className={styles.cards}>
-            {this.state.cards.map(({ key, ...columnProps }) => (
-              <Card key={key} {...columnProps} />
-            ))}
-          </div>
-          <div className={styles.creator}>
-            <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
-          </div>  
-        </section>
-      )
-    }
+  render() {
+    const { title, icon } = this.props;
+    return (
+      <section className={styles.component}>
+        <h3 className={styles.title}>
+          <span className={styles.icon}>
+            <Icon name={icon} />
+          </span>
+          {title}
+        </h3>
+        <div className={styles.cards}>
+          {this.state.cards.map(({ key, ...columnProps }) => (
+            <Card key={key} {...columnProps} />
+          ))}
+        </div>
+        <div className={styles.creator}>
+          <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
+        </div>  
+      </section>
+    );
   }
+}
   
-  export default Column;
+export default Column;
