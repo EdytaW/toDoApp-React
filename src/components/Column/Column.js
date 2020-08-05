@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Column.scss';
 import PropTypes from 'prop-types';
-// import {settings} from '../../data/dataStore';
+import {settings} from '../../data/dataStore';
 import Card from '../Card/Card.js';
 // import Creator from '../Creator/Creator.js';
 import Icon from '../Icon/Icon.js';
@@ -16,7 +16,8 @@ class Column extends React.Component {
     cards: PropTypes.array,
     // addCard: PropTypes.func,
     id: PropTypes.string,
-    icon: PropTypes.icon,
+    // icon: PropTypes.icon,
+    icon: settings.defaultColumnIcon,
   }
   // addCard(title) {
   //   this.setState(state => (

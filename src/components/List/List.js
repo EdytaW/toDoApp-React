@@ -5,17 +5,18 @@ import PropTypes from 'prop-types';
 import Column from '../Column/ColumnContainer.js';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
-// import Creator from '../Creator/Creator.js';
+import Creator from '../Creator/Creator.js';
 
 class List extends React.Component {
-  // state = {
-  //   columns: this.props.columns || [],
-  // }
+  state = {
+    columns: this.props.columns || [],
+  }
   static propTypes = {
     title: PropTypes.node.isRequired,
     image: PropTypes.node,
     description: settings.defaultListDescription,
     columns: PropTypes.array,
+    addColumn: PropTypes.func,
   }
   static defaultProps = {
     children: <p>I can do all the things!!!</p>,
@@ -36,7 +37,7 @@ class List extends React.Component {
   //   ));
   // }  
   render() {
-    const {title, image, description, columns} = this.props;
+    const {title, image, description, columns, addColumn} = this.props;
     return (
       <section className={styles.component}>
         <Hero titleText={title} imageProp={image}/>
@@ -48,11 +49,9 @@ class List extends React.Component {
             <Column key={columnData.id} {...columnData} />
           ))}
         </div>
-        {/*
         <div className={styles.creator}>
-          <Creator text={settings.columnCreatorText} action={title => this.addColumn(title)}/>
+          <Creator text={settings.columnCreatorText} action={addColumn}/>
         </div>
-          */}
       </section>
     );
   }
