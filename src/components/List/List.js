@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './List.scss';
 import Hero from '../Hero/Hero.js';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import Column from '../Column/ColumnContainer';
 import {settings} from '../../data/dataStore';
 import ReactHtmlParser from 'react-html-parser';
@@ -13,8 +13,8 @@ class List extends React.Component {
   }
   static propTypes = {
     title: PropTypes.node.isRequired,
-    image: PropTypes.node,
-    description: settings.defaultListDescription,
+    image: PropTypes.string,
+    description: string,
     columns: PropTypes.array,
     addColumn: PropTypes.func,
   }
