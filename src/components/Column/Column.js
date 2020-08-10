@@ -8,9 +8,9 @@ import Icon from '../Icon/Icon.js';
 
 class Column extends React.Component {
   //zapisywał zawartość właściwości cards w stanie komponentu
-  state = {
-    cards: this.props.cards || [],
-  }
+  // state = {
+  //   cards: this.props.cards || [],
+  // }
   static propTypes = {
     title: PropTypes.node.isRequired,
     cards: PropTypes.array,
