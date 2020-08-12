@@ -7,6 +7,8 @@ import Card from '../Card/Card.js';
 class SearchResults extends React.Component {
     static propTypes = {
       cards: PropTypes.array,
+      changeSearchString: PropTypes.func,
+      match: PropTypes.any,
     }
     
     render() {
